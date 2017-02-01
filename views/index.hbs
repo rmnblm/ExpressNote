@@ -1,0 +1,47 @@
+{{#contentFor 'additionalButtons'}}
+<li class='main-nav-item'>
+  <a class='main-nav-item-add-note' title='Add Note' href='/notes/new'>+</a>
+</li>
+{{/contentFor}} {{#if notes}}
+<h2>Dashboard</h2>
+<div class='notes-container'>
+  {{#each notes}}
+  <div class='note-card'>
+    <header class='note-card-header'>
+      <p class='note-card-header-title'>
+        {{title}}
+      </p>
+    </header>
+    <div class='note-card-content'>
+      <div class='content'>
+        {{content}}
+        <div class='note-card-content-date'>{{moment updated}}</div>
+      </div>
+    </div>
+    <footer class='note-card-footer'>
+      <ul class='note-card-footer-container'>
+        <li class='note-card-footer-item'>
+          <a href='/notes/{{_id}}'>Edit</a>
+        </li>
+        <li class='note-card-footer-item'>
+          <form class='note-card-footer-item-content' action='/notes/{{_id}}' method='post'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Delete'>
+          </form>
+        </li>
+      </ul>
+    </footer>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<div class='message'>
+  <div class='message-header'>
+    Ooooops!
+  </div>
+  <div class='message-body'>
+    <p>Currently there are no notes available.</p>
+    <p>Create one if you want to see some.</p>
+  </div>
+</div>
+{{/if}}

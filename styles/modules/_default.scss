@@ -1,0 +1,218 @@
+$colorPrimary: #1E1E1E;
+$colorSecondary: #FFD700;
+$colorSecondaryDark: darken($colorSecondary, 4%);
+$colorFaded: #B5B5B5;
+
+$noteCardBorder: 1px solid $colorFaded;
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: $colorPrimary;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+a {
+  @extend .link;
+  text-decoration: none;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.link {
+  color: $colorSecondaryDark;
+  cursor: pointer;
+}
+
+.code {
+  font-family: monospace;
+  word-wrap: break-word;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.container {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.header {
+  background: $colorSecondary;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid $colorSecondaryDark;
+
+  a,
+  a:visited {
+    color: $colorPrimary;
+  }
+}
+
+.main {
+  flex: 1;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.main-nav {
+  display: none;
+  align-items: center;
+  height: 100%;
+}
+
+.main-nav-item {
+  font-size: 1.2em;
+  margin-left: 20px;
+  &:first-of-type {
+    margin-left: 0px;
+  }
+}
+
+.main-nav-link {
+  border-bottom: 2px solid transparent;
+  &:hover {
+    border-bottom-color: $colorPrimary;
+  }
+}
+
+.main-nav-item-add-note {
+  font-size: 27px;
+  border: 2px solid $colorPrimary;
+  border-radius: 25%;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 100%;
+}
+
+.builtwith {
+  font-size: 0.75em;
+  color: $colorFaded;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note-card {
+  @extend .wrapword;
+  display: flex;
+  flex: 0 1 22%;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 5px 5px 8px rgba(10, 10, 10, 0.1);
+  box-sizing: border-box;
+  border: $noteCardBorder;
+  margin-bottom: 32px;
+}
+
+.wrapword {
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-wrap;       /* css-3 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+  word-break: break-all;
+  white-space: normal;
+}
+
+.note-card-header {
+  height: 40px;
+  border-bottom: $noteCardBorder;
+  overflow: hidden;
+  white-space: nowrap;
+  
+}
+
+.note-card-header-title {
+  margin: 12px;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.note-card-content {
+  flex: 1;
+  margin: 12px;
+}
+
+.note-card-content-date {
+  margin-top: 0.25em;
+  display: block;
+  font-size: 0.75em;
+  color: $colorFaded;
+}
+
+.note-card-footer {
+  height: 40px;
+}
+
+.note-card-footer-container {
+  display: flex;
+  justify-content: flex-start;
+  border-top: $noteCardBorder;
+  height: 100%;
+  form {
+    display: inline-block;
+  }
+  input {
+    @extend .link;
+    background: none;
+    border:none; 
+    padding:0;
+    display: inline-block;
+  }
+}
+
+.note-card-footer-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 50%;
+  &:not(:last-child) {
+    border-right: $noteCardBorder;
+  }
+}
+
+@media (min-width: 500px) {
+  .main-nav {
+    display: flex;
+  }
+  .hamburger {
+    display: none;
+  }
+}

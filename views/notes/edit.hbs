@@ -1,0 +1,8 @@
+<h2>Edit Note</h2>
+<form action='/notes/{{_id}}' method='post'>
+  <input type='hidden' name='_method' value='put'>
+  <input type='hidden' name='_id' value='{{_id}}'>
+  <input name='title' placeholder='title' value='{{title}}'>
+  <input name='content' placeholder='content' value='{{content}}'>
+  <input type='submit'>
+</form>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/css/application.css' />
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <header class='container header'>
+    <div class='logo'><a href='/'>ExpressNote</a></div>
+    <button class="hamburger hamburger--slider" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <ul class='main-nav'>
+      <li class='main-nav-item'>
+        <a class='main-nav-link' href='#'>Home</a>
+      </li>
+      <li class='main-nav-item'>
+        <a class='main-nav-link' href='#'>About</a>
+      </li>
+      <li class='main-nav-item'>
+        <a class='main-nav-link' href='#'>Login</a>
+      </li>
+      {{{block 'additionalButtons'}}}
+    </ul>
+  </header>
+  <main class='container main'>
+    {{{body}}}
+    {{> scripts}}
+  </main>
+  <footer class='container footer'>
+    <div class='builtwith'>Built with ❤️ &nbsp;in Switzerland.</div>
+  </footer>
+</body>
+
+</html>
